@@ -124,7 +124,7 @@ $(document).ready(function() {
                     enemyIsDead = false;
     
                     $('.main-text').text('May the force be with you!!!');
-                    $('.instructions').text('Fight to the death!');
+                    $('.instructions').text('Press A character and fight to the death!');
     
                     
                     currentEnemy = enemies.find((obj, index) => {
