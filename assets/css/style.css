@@ -1,0 +1,41 @@
+body {
+  height: 100%;
+  width: 100%;
+  background: url("../img/sw.png") no-repeat center center fixed;
+  background-size: cover; }
+
+.main-jumbotron {
+  background: transparent;
+  color: white;
+  margin-top: 40px; }
+
+.legos .lego {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  bottom: 100px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain; }
+  .legos .lego:hover {
+    cursor: pointer; }
+  .legos .lego .info-box {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    position: absolute;
+    width: 100%;
+    top: -160px; }
+    .legos .lego .info-box p {
+      margin: 0; }
+  .legos .lego:nth-child(1) {
+    left: 20px;
+    background-image: url("../img/lego-darth.png"); }
+  .legos .lego:nth-child(2) {
+    left: 240px;
+    background-image: url("../img/lego-watto.png"); }
+  .legos .lego:nth-child(3) {
+    right: 20px;
+    background-image: url("../img/lego-yoda.png"); }
+  .legos .lego:nth-child(4) {
+    right: 240px;
+    background-image: url("../img/lego-trooper.png"); }
