@@ -57,11 +57,9 @@ $(document).ready(function() {
                         });
                         $(this).fadeIn('fast');
                     });
-                    console.log('It is working');
                 });
     
                 $('.lego').promise().done(function() {
-                    console.log('Promise ended!');
                     // Flags
                     characterPicked = false;
                     enemyPicked = false;
@@ -89,16 +87,16 @@ $(document).ready(function() {
                 
                 userCharacter = new Character();
                 userCharacter.name = $(this).attr('name');
-                userCharacter.baseDamage = parseInt($(this).attr('base-damage'));
+                userCharacter.baseDamage = parseInt($(this).attr('base-damage'))
+                userCharacter.attackDamage = parseInt($(this).attr('base-damage'));
                 userCharacter.counterDamage = parseInt($(this).attr('counter-damage'));
                 userCharacter.element = $(this);
-    
-                var rightStyle = $(this).css('right');
-                var onRightSide = (rightStyle == '20px') || (rightStyle == '240px') ? true : false;
     
                 $(this).data('left', $(this).css('left'));
                 $(this).data('right', $(this).css('right'));
                 $(this).data('background-image', $(this).css('background-image'));
+
+                var onRightSide = $(this).data('right') == '20px' || $(this).data('right') == '240px';
     
                 $(this).animate({
                     'left': '35%',
@@ -109,16 +107,15 @@ $(document).ready(function() {
                             'background-image': "url('" + imgUrl + "')",
                         });
                     }
+                    $(this).siblings().each(function(index) {
+                        enemies[index] = new Character();
+                        enemies[index].name = $(this).attr('name');
+                        enemies[index].baseDamage = parseInt($(this).attr('base-damage'));
+                        enemies[index].attackDamage = parseInt($(this).attr('base-damage'));
+                        enemies[index].counterDamage = parseInt($(this).attr('counter-damage'));
+                        enemies[index].element = $(this);
+                    });
                     animating = false;
-                });
-    
-                $(this).siblings().each(function(index) {
-                    enemies[index] = new Character();
-                    enemies[index].name = $(this).attr('name');
-                    enemies[index].baseDamage,
-                    enemies[index].attackDamage = parseInt($(this).attr('base-damage'));
-                    enemies[index].counterDamage = parseInt($(this).attr('counter-damage'));
-                    enemies[index].element = $(this);
                 });
             } else if (characterPicked && !enemyPicked && !animating) {
                 if ($(this).attr('name') !== userCharacter.name) {
@@ -130,19 +127,18 @@ $(document).ready(function() {
                     $('.instructions').text('Fight to the death!');
     
                     
-                    currentEnemy = enemies.find( (obj, index) => {
+                    currentEnemy = enemies.find((obj, index) => {
                     if (obj.name === $(this).attr('name')) {
                         currentEnemyIndex = index;
                         return obj;
                         }
                     });
     
-                    var leftStyle = $(this).css('left');
-                    var onLeftSide = (leftStyle == '20px') || (leftStyle == '240px') ? true : false;
-    
                     $(this).data('left', $(this).css('left'));
                     $(this).data('right', $(this).css('right'));
                     $(this).data('background-image', $(this).css('background-image'));
+
+                    var onLeftSide = $(this).data('left') == '20px' || $(this).data('left') == '240px';
     
                     $(this).animate({
                         'left': '50%',
