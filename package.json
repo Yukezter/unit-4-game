@@ -1,0 +1,22 @@
+{
+  "name": "unit-4-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w assets/scss/ -o assets/css --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yukezter/unit-4-game.git"
+  },
+  "author": "Bryan Hinchliffe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yukezter/unit-4-game/issues"
+  },
+  "homepage": "https://github.com/Yukezter/unit-4-game#readme",
+  "dependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
